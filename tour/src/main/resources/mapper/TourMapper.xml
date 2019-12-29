@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccnu.tour.dao.TourDao" >
+  <resultMap id="BaseResultMap" type="com.ccnu.tour.pojo.TourBean" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="city_id" property="cityId" jdbcType="INTEGER" />
+    <result column="tour_url" property="tourUrl" jdbcType="VARCHAR" />
+    <result column="tour_title" property="tourTitle" jdbcType="VARCHAR" />
+    <result column="tour_author" property="tourAuthor" jdbcType="VARCHAR" />
+    <result column="tour_content" property="tourContent" jdbcType="VARCHAR" />
+    <result column="tour_summary" property="tourSummary" jdbcType="VARCHAR" />
+    <result column="createtime" property="createTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="TourResultMap" type="com.ccnu.tour.pojo.TourBean" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="city_id" property="cityId" jdbcType="INTEGER" />
+    <result column="tour_url" property="tourUrl" jdbcType="VARCHAR" />
+    <result column="tour_title" property="tourTitle" jdbcType="VARCHAR" />
+    <result column="tour_author" property="tourAuthor" jdbcType="VARCHAR" />
+    <result column="tour_content" property="tourContent" jdbcType="VARCHAR" />
+    <result column="tour_summary" property="tourSummary" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="VARCHAR" />
+    <association property="city_code" javaType="com.ccnu.tour.pojo.CityCodeBean">
+      <id column="id" property="id" jdbcType="INTEGER" />
+      <result column="code" property="code" jdbcType="VARCHAR" />
+      <result column="city_name" property="cityName" jdbcType="VARCHAR" />
+      <result column="city_code" property="cityCode" jdbcType="VARCHAR" />
+    </association>
+  </resultMap>
+  <select id="getQueryTour" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+           SELECT * FROM tour
+    </select>
+</mapper>

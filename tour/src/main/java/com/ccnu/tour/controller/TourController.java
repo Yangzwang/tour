@@ -1,22 +1,16 @@
 package com.ccnu.tour.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.ccnu.tour.pojo.TourBean;
 import com.ccnu.tour.service.TourService;
-
 import com.ccnu.tour.util.CommonUtil;
-import com.ccnu.tour.util.ErrorEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/tour")

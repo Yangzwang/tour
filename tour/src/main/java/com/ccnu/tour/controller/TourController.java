@@ -27,6 +27,5 @@ public class TourController {
         log.info("/tour/getTour{}" + jsonObject);
         return this.tourService.getQueryTour(Integer.parseInt(jsonObject.getString("pageNum")), Integer.parseInt(jsonObject.getString("pageSize")));
 
-
     }
 }

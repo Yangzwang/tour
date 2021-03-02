@@ -9,7 +9,6 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 @Service
 public class TourServiceImpl implements TourService {
      @Resource
@@ -18,7 +17,6 @@ public class TourServiceImpl implements TourService {
 
     @Override
     public JSONObject getQueryTour(Integer pageNum, Integer pageSize) {
-
         PageHelper.startPage(pageNum,pageSize);
         Page<TourBean> list=tourDao.getQueryTour();
         JSONObject jsonObject=new JSONObject();

@@ -2,6 +2,7 @@ package com.ccnu.tour.util;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ccnu.tour.config.CommonJsonException;
+import com.ccnu.tour.pojo.HttpResult;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +35,7 @@ public class CommonUtil {
         JSONObject resultJson = new JSONObject();
         resultJson.put("returnCode", Constants.SUCCESS_CODE);
         resultJson.put("returnMsg", Constants.SUCCESS_MSG);
-        resultJson.put("returnData", returnData);
+        resultJson.put("data", returnData);
         return resultJson;
     }
 
@@ -48,7 +49,7 @@ public class CommonUtil {
         JSONObject resultJson = new JSONObject();
         resultJson.put("returnCode", errorEnum.getErrorCode());
         resultJson.put("returnMsg", errorEnum.getErrorMsg());
-        resultJson.put("returnData", new JSONObject());
+        resultJson.put("data", new JSONObject());
         return resultJson;
     }
 
@@ -63,7 +64,7 @@ public class CommonUtil {
         JSONObject resultJson = new JSONObject();
         resultJson.put("returnCode", errorEnum.getErrorCode());
         resultJson.put("returnMsg", errorEnum.getErrorMsg());
-        resultJson.put("returnData", jsonObject);
+        resultJson.put("data", jsonObject);
         return resultJson;
     }
 
@@ -92,7 +93,7 @@ public class CommonUtil {
         if (requestJson.containsKey("roleInfo")){
             returnData.put("roleInfo", requestJson.get("roleInfo"));
         }
-        result.put("returnData", returnData);
+        result.put("data", returnData);
         return result;
     }
 

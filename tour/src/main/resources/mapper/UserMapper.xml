@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ccnu.tour.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.ccnu.tour.pojo.User">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="credit" jdbcType="INTEGER" property="credit" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="hobby" jdbcType="VARCHAR" property="hobby" />
+    <result column="identity" jdbcType="VARCHAR" property="identity" />
+    <result column="imgUrl" jdbcType="VARCHAR" property="imgurl" />
+    <result column="km" jdbcType="REAL" property="km" />
+    <result column="lat" jdbcType="DOUBLE" property="lat" />
+    <result column="lng" jdbcType="DOUBLE" property="lng" />
+    <result column="loginName" jdbcType="VARCHAR" property="loginname" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="passwd" jdbcType="VARCHAR" property="passwd" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="times" jdbcType="INTEGER" property="times" />
+    <result column="true_name" jdbcType="VARCHAR" property="trueName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, age, birthday, credit, description, hobby, identity, imgUrl, km, lat, lng, loginName, 
+    nickname, passwd, sex, status, times, true_name
+  </sql>
+  <select id="findById" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ccnu.tour.pojo.User">
+    insert into t_user (id, age, birthday, 
+      credit, description, hobby, 
+      identity, imgUrl, km, 
+      lat, lng, loginName, 
+      nickname, passwd, sex, 
+      status, times, true_name
+      )
+    values (#{id,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{credit,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, #{hobby,jdbcType=VARCHAR}, 
+      #{identity,jdbcType=VARCHAR}, #{imgurl,jdbcType=VARCHAR}, #{km,jdbcType=REAL}, 
+      #{lat,jdbcType=DOUBLE}, #{lng,jdbcType=DOUBLE}, #{loginname,jdbcType=VARCHAR}, 
+      #{nickname,jdbcType=VARCHAR}, #{passwd,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{times,jdbcType=INTEGER}, #{trueName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ccnu.tour.pojo.User">
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="credit != null">
+        credit,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="hobby != null">
+        hobby,
+      </if>
+      <if test="identity != null">
+        identity,
+      </if>
+      <if test="imgurl != null">
+        imgUrl,
+      </if>
+      <if test="km != null">
+        km,
+      </if>
+      <if test="lat != null">
+        lat,
+      </if>
+      <if test="lng != null">
+        lng,
+      </if>
+      <if test="loginname != null">
+        loginName,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="passwd != null">
+        passwd,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="times != null">
+        times,
+      </if>
+      <if test="trueName != null">
+        true_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="credit != null">
+        #{credit,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="hobby != null">
+        #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="identity != null">
+        #{identity,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl != null">
+        #{imgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="km != null">
+        #{km,jdbcType=REAL},
+      </if>
+      <if test="lat != null">
+        #{lat,jdbcType=DOUBLE},
+      </if>
+      <if test="lng != null">
+        #{lng,jdbcType=DOUBLE},
+      </if>
+      <if test="loginname != null">
+        #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null">
+        #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="times != null">
+        #{times,jdbcType=INTEGER},
+      </if>
+      <if test="trueName != null">
+        #{trueName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ccnu.tour.pojo.User">
+    update t_user
+    <set>
+      <if test="age != null">
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="credit != null">
+        credit = #{credit,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="hobby != null">
+        hobby = #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="identity != null">
+        identity = #{identity,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl != null">
+        imgUrl = #{imgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="km != null">
+        km = #{km,jdbcType=REAL},
+      </if>
+      <if test="lat != null">
+        lat = #{lat,jdbcType=DOUBLE},
+      </if>
+      <if test="lng != null">
+        lng = #{lng,jdbcType=DOUBLE},
+      </if>
+      <if test="loginname != null">
+        loginName = #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null">
+        passwd = #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="times != null">
+        times = #{times,jdbcType=INTEGER},
+      </if>
+      <if test="trueName != null">
+        true_name = #{trueName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ccnu.tour.pojo.User">
+    update t_user
+    set age = #{age,jdbcType=INTEGER},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      credit = #{credit,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      hobby = #{hobby,jdbcType=VARCHAR},
+      identity = #{identity,jdbcType=VARCHAR},
+      imgUrl = #{imgurl,jdbcType=VARCHAR},
+      km = #{km,jdbcType=REAL},
+      lat = #{lat,jdbcType=DOUBLE},
+      lng = #{lng,jdbcType=DOUBLE},
+      loginName = #{loginname,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      passwd = #{passwd,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      times = #{times,jdbcType=INTEGER},
+      true_name = #{trueName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+    <select id="findByUserName"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from t_user
+        where loginName = #{username,jdbcType=VARCHAR}
+    </select>
+
+</mapper>

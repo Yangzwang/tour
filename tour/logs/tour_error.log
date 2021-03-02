@@ -6229,3 +6229,488 @@ Caused by: java.io.IOException: 远程主机强迫关闭了一个现有的连接
 	at org.apache.coyote.Response.doWrite(Response.java:601)
 	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:339)
 	... 83 common frames omitted
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+2021/02/20-22:01:19.829 ERROR [main] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter:40 - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.ccnu.tour.dao.UserMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.ccnu.tour.dao.UserMapper' in your configuration.
+
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+2021/02/20-22:04:34.192 ERROR [main] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter:40 - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.ccnu.tour.dao.UserMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.ccnu.tour.dao.UserMapper' in your configuration.
+
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+2021/02/21-13:47:44.979 ERROR [http-nio-8090-exec-1] com.ccnu.tour.config.GlobalExceptionHandler:41 - 异常
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'password' in 'where clause'
+### The error may exist in file [D:\Javastudy\graduation\tour\tour\target\classes\mapper\UserMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select               id, age, birthday, credit, description, hobby, identity, imgUrl, km, lat, lng, loginName,      nickname, passwd, sex, status, times, true_name             from t_user         where loginName = ?         and password=?
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'password' in 'where clause'
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'password' in 'where clause'
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:234)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:74)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:440)
+	at com.sun.proxy.$Proxy61.selectOne(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:159)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:57)
+	at com.sun.proxy.$Proxy62.findByUserNameAndPassword(Unknown Source)
+	at com.ccnu.tour.service.Impl.UserServiceImpl.findByUserNameAndPassword(UserServiceImpl.java:22)
+	at com.ccnu.tour.controller.LoginController.login(LoginController.java:27)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLSyntaxErrorException: Unknown column 'password' in 'where clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:3051)
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:3049)
+	at com.alibaba.druid.proxy.jdbc.PreparedStatementProxyImpl.execute(PreparedStatementProxyImpl.java:167)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:143)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy81.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	... 64 common frames omitted
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+2021/02/21-15:26:37.851 ERROR [http-nio-8090-exec-1] com.ccnu.tour.config.GlobalExceptionHandler:41 - 异常
+org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.alibaba.druid.pool.DataSourceDisableException
+### The error may exist in file [D:\Javastudy\graduation\tour\tour\target\classes\mapper\UserMapper.xml]
+### The error may involve com.ccnu.tour.dao.UserMapper.findByUserNameAndPassword
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.alibaba.druid.pool.DataSourceDisableException
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:78)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:440)
+	at com.sun.proxy.$Proxy61.selectOne(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:159)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:57)
+	at com.sun.proxy.$Proxy62.findByUserNameAndPassword(Unknown Source)
+	at com.ccnu.tour.service.Impl.UserServiceImpl.findByUserNameAndPassword(UserServiceImpl.java:22)
+	at com.ccnu.tour.controller.LoginController.login(LoginController.java:24)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.alibaba.druid.pool.DataSourceDisableException
+### The error may exist in file [D:\Javastudy\graduation\tour\tour\target\classes\mapper\UserMapper.xml]
+### The error may involve com.ccnu.tour.dao.UserMapper.findByUserNameAndPassword
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.alibaba.druid.pool.DataSourceDisableException
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:149)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	... 64 common frames omitted
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.alibaba.druid.pool.DataSourceDisableException
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:80)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:67)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:85)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:143)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy82.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	... 71 common frames omitted
+Caused by: com.alibaba.druid.pool.DataSourceDisableException: null
+	at com.alibaba.druid.pool.DruidDataSource.takeLast(DruidDataSource.java:1905)
+	at com.alibaba.druid.pool.DruidDataSource.getConnectionInternal(DruidDataSource.java:1458)
+	at com.alibaba.druid.pool.DruidDataSource.getConnectionDirect(DruidDataSource.java:1253)
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:4619)
+	at com.alibaba.druid.filter.stat.StatFilter.dataSource_getConnection(StatFilter.java:680)
+	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:4615)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1231)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1223)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:90)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:157)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78)
+	... 83 common frames omitted
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+2021/02/23-22:26:28.979 ERROR [main] org.apache.juli.logging.DirectJDKLog:175 - Exception starting filter [userAuthorizationFilter]
+org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'userAuthorizationManager' available
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:771)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1221)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1111)
+	at com.ccnu.tour.config.UserAuthorizationFilter.init(UserAuthorizationFilter.java:32)
+	at org.apache.catalina.core.ApplicationFilterConfig.initFilter(ApplicationFilterConfig.java:270)
+	at org.apache.catalina.core.ApplicationFilterConfig.<init>(ApplicationFilterConfig.java:106)
+	at org.apache.catalina.core.StandardContext.filterStart(StandardContext.java:4533)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5172)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:841)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:421)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:932)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:459)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:105)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:86)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:416)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:180)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:180)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1204)
+	at com.ccnu.tour.TourApplication.main(TourApplication.java:10)
+2021/02/23-22:26:28.987 ERROR [main] org.apache.juli.logging.DirectJDKLog:173 - One or more Filters failed to start. Full details will be found in the appropriate container log file
+2021/02/23-22:26:28.987 ERROR [main] org.apache.juli.logging.DirectJDKLog:173 - Context [] startup failed due to previous errors
+2021/02/23-22:26:29.430 ERROR [main] org.springframework.boot.SpringApplication:823 - Application run failed
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1204)
+	at com.ccnu.tour.TourApplication.main(TourApplication.java:10)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:124)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:86)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:416)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:180)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:180)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)
+	... 8 common frames omitted
+Caused by: java.lang.IllegalStateException: StandardEngine[Tomcat].StandardHost[localhost].TomcatEmbeddedContext[] failed to start
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.rethrowDeferredStartupExceptions(TomcatWebServer.java:169)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108)
+	... 13 common frames omitted
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+2021/02/23-22:51:21.302 ERROR [http-nio-8090-exec-1] org.apache.juli.logging.DirectJDKLog:175 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+com.ccnu.tour.config.CommonJsonException: null
+	at com.ccnu.tour.config.UserAuthorizationFilter.doFilter(UserAuthorizationFilter.java:42)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+2021/02/23-22:53:55.842 ERROR [http-nio-8090-exec-1] org.apache.juli.logging.DirectJDKLog:175 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+com.ccnu.tour.config.CommonJsonException: null
+	at com.ccnu.tour.config.UserAuthorizationFilter.doFilter(UserAuthorizationFilter.java:42)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+2021/02/27-21:26:00.430 ERROR [http-nio-8090-exec-1] com.ccnu.tour.controller.LoginController:36 - 登录用户不存在username:17621615772
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n
+#logback.classic pattern: %d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] %class:%line - %msg%n

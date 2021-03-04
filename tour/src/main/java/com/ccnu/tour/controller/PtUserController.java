@@ -28,7 +28,7 @@ public class PtUserController {
 
     @RequestMapping(value = "/user_info", method = RequestMethod.POST)
     @ResponseBody
-    public JSONObject login(HttpServletRequest request) {
+    public JSONObject userInfo(HttpServletRequest request) {
         //String token = request.getHeader("token");
         User user= (User) request.getAttribute("user_info");
         return CommonUtil.successJson(user);

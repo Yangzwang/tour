@@ -8,5 +8,7 @@ public interface UserService {
 
    User findById(String id);
 
+   boolean insertSelective(User user);
+
 
 }

@@ -56,7 +56,7 @@ public class CommonUtil {
     /**
      * 返回错误信息JSON 带上请求的结果
      *
-     * @param errorEnum 错误码的errorEnum
+     * @param errorEnum  错误码的errorEnum
      * @param jsonObject 请求的结果
      * @return
      */
@@ -84,13 +84,13 @@ public class CommonUtil {
         returnData.put("totalCount", totalCount);
         returnData.put("totalPage", totalPage);
         // 放置充值的总额记录
-        if (requestJson.containsKey("payTotal")){
+        if (requestJson.containsKey("payTotal")) {
             returnData.put("payTotal", requestJson.get("payTotal"));
         }
-        if (requestJson.containsKey("freeTotal")){
+        if (requestJson.containsKey("freeTotal")) {
             returnData.put("freeTotal", requestJson.get("freeTotal"));
         }
-        if (requestJson.containsKey("roleInfo")){
+        if (requestJson.containsKey("roleInfo")) {
             returnData.put("roleInfo", requestJson.get("roleInfo"));
         }
         result.put("data", returnData);
@@ -221,5 +221,16 @@ public class CommonUtil {
      */
     public static void fillPageParam(final JSONObject paramObject) {
         fillPageParam(paramObject, 10);
+    }
+
+
+    public static void hasAllRequired(String key,String value) {
+        if (StringTools.isNullOrEmpty(value)) {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("returnCode", ErrorEnum.E_90003.getErrorCode());
+            jsonObject.put("returnMsg", "缺少必填参数:" +key);
+            jsonObject.put("returnData", new JSONObject());
+            throw new CommonJsonException(jsonObject);
+        }
     }
 }

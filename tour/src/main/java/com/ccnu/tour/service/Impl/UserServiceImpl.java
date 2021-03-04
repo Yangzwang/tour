@@ -26,4 +26,9 @@ public class UserServiceImpl implements UserService {
     public User findById(String id) {
         return userMapper.findById(id);
     }
+
+    @Override
+    public boolean insertSelective(User user) {
+        return userMapper.insertSelective(user)>0;
+    }
 }

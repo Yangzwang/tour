@@ -1,5 +1,8 @@
 package com.ccnu.tour.pojo;
 
+import com.ccnu.tour.util.AESUtil;
+import com.ccnu.tour.util.StringTools;
+
 import java.util.Date;
 
 public class User {
@@ -38,6 +41,18 @@ public class User {
     private Integer times;
 
     private String trueName;
+
+    public static User init(String phone, String password) {
+        User user = new User();
+        user.setId("297e82c65549745b0155497460010010789");
+        user.setLoginname(phone);
+        user.setPasswd(AESUtil.doEncrypt(password));
+        user.setStatus(0);
+        user.setNickname(StringTools.getNikeName());
+        user.setImgurl(StringTools.photoUrl());
+        user.setKm(0f);
+        return user;
+    }
 
     public String getId() {
         return id;

@@ -51,6 +51,7 @@ public class UserAuthorizationFilter implements Filter {
                 return;
             }*/
             String token = RequestExtract.getToken(requestWrpper);
+            logger.info("token:{}",token);
             if (token != null) {
                 User user = userAuthorizationManager.validationUserLogin(token);
                 if (user != null) {

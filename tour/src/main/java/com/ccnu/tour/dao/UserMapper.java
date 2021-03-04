@@ -11,13 +11,14 @@ public interface UserMapper {
 
     int insert(User record);
 
-    int insertSelective(User record);
+    int insertSelective(User user);
 
     User findById(String id);
 
-    int updateByPrimaryKeySelective(User record);
+    int updateByPrimaryKeySelective(User user);
 
-    int updateByPrimaryKey(User record);
+    int updateByPrimaryKey(User user);
 
     User findByUserName(@Param("username") String username);
+
 }

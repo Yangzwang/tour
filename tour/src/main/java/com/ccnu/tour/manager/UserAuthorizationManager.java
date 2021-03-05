@@ -18,9 +18,11 @@ public class UserAuthorizationManager {
     @Autowired
     private UserService userService;
 
+    private static final String TOKEN_BASE_KSY = "token:";
+
 
     public User validationUserLogin(String token) {
-        String userJson = redisService.get(token);
+        String userJson = redisService.get(TOKEN_BASE_KSY+token);
         if (StringUtils.isEmpty(userJson)) {
             return null;
         }

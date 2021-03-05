@@ -11,6 +11,7 @@ import com.ccnu.tour.util.StringTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -23,6 +24,9 @@ public class PtUserController {
     UserService userService;
     @Autowired
     RedisService redisService;
+    @Value("${img.url}")
+    private String imgUrl;
+
 
     private static Logger log = LoggerFactory.getLogger(PtUserController.class);
 
@@ -30,7 +34,8 @@ public class PtUserController {
     @ResponseBody
     public JSONObject userInfo(HttpServletRequest request) {
         //String token = request.getHeader("token");
-        User user= (User) request.getAttribute("user_info");
+        User user = (User) request.getAttribute("user_info");
+        user.setPhoto(imgUrl + user.getPhoto());
         return CommonUtil.successJson(user);
 
     }

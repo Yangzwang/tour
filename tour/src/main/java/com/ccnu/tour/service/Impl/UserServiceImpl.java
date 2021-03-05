@@ -23,12 +23,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findById(String id) {
+    public User findById(Integer id) {
         return userMapper.findById(id);
     }
 
     @Override
-    public boolean insertSelective(User user) {
-        return userMapper.insertSelective(user)>0;
+    public boolean insert(User user) {
+        return userMapper.insert(user)>0;
+    }
+
+    @Override
+    public boolean updatePasswordByPhone(String phone, String password) {
+        return userMapper.updatePasswordByPhone(phone,password)>0;
     }
 }

@@ -29,6 +29,10 @@ public class PbUserController {
 
     private static Logger log = LoggerFactory.getLogger(PbUserController.class);
 
+    private static final String TOKEN_BASE_KSY = "token:";
+
+    private static final long seconds = 60 * 60 * 24 * 7;
+
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public JSONObject login(@RequestBody JSONObject requestJson, HttpServletRequest request) {
@@ -44,7 +48,7 @@ public class PbUserController {
             throw new CommonJsonException(ErrorEnum.E_10002);
         }
         String token = StringTools.GetGUID();
-        redisService.set(token, user.getLoginname());
+        redisService.set(TOKEN_BASE_KSY + token, user.getPhone());
         return CommonUtil.successJson(token);
 
     }
@@ -59,7 +63,7 @@ public class PbUserController {
         if (!smsService.verificationCode(phone, validCode)) {
             throw new CommonJsonException(ErrorEnum.E_10003);
         }
-        if (!userService.insertSelective(User.init(phone, password))) {
+        if (!userService.insert(User.init(phone, password))) {
             throw new CommonJsonException(ErrorEnum.E_10004);
         }
         String token = StringTools.GetGUID();
@@ -67,4 +71,26 @@ public class PbUserController {
         return CommonUtil.successJson(token);
 
     }
+
+    @RequestMapping(value = "/forget_password", method = RequestMethod.POST)
+    @ResponseBody
+    public JSONObject forgetPassword(@RequestBody JSONObject requestJson, HttpServletRequest request) {
+        CommonUtil.hasAllRequired(requestJson, "phone,password,validCode");
+        String phone = requestJson.getString("phone");
+        String validCode = requestJson.getString("validCode");
+        String password = requestJson.getString("password");
+        if (!smsService.verificationCode(phone, validCode)) {
+            throw new CommonJsonException(ErrorEnum.E_10003);
+        }
+        if (!userService.updatePasswordByPhone(phone, password)) {
+            throw new CommonJsonException(ErrorEnum.E_10006);
+        }
+        String token = StringTools.GetGUID();
+        redisService.set(TOKEN_BASE_KSY + token, phone);
+        redisService.expire(TOKEN_BASE_KSY + token, seconds);
+
+        return CommonUtil.successJson(token);
+
+    }
+
 }

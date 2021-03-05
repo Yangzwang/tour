@@ -7,18 +7,17 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface UserMapper {
-    int deleteByPrimaryKey(String id);
+
 
     int insert(User record);
 
-    int insertSelective(User user);
 
-    User findById(String id);
 
-    int updateByPrimaryKeySelective(User user);
+    User findById(Integer id);
 
-    int updateByPrimaryKey(User user);
 
     User findByUserName(@Param("username") String username);
+
+    int updatePasswordByPhone(@Param("phone")String phone,@Param("password")String password);
 
 }

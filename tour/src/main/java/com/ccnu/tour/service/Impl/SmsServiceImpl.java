@@ -38,7 +38,11 @@ public class SmsServiceImpl implements SmsService {
     private RedisService redisService;
 
     public void sendCode(String phone) {
-        AccountInfo accountInfo = accountInfoMapper.findByAccountType(1);
+
+        redisService.set(CODE_BASE_KSY + phone, 1234+"");
+        redisService.expire(CODE_BASE_KSY + phone,seconds);
+
+        /*AccountInfo accountInfo = accountInfoMapper.findByAccountType(1);
         String appCode = AESUtil.doDecrypt(accountInfo.getSecretKey());
         String templateId = accountInfo.getRemarks();
         String code = StringTools.getRandom();
@@ -46,7 +50,7 @@ public class SmsServiceImpl implements SmsService {
         headers.put("Authorization", "APPCODE " + appCode);
         Map<String, String> queryMap = new HashMap<>();
         queryMap.put("mobile", phone);
-        queryMap.put("param", "code:" + code);
+        queryMap.put("param", "code:" + 1234);
         queryMap.put("tpl_id", templateId);
         log.info("send code ,phone:{}, errorInfo:{}", phone, JSONObject.toJSONString(queryMap));
 
@@ -55,12 +59,12 @@ public class SmsServiceImpl implements SmsService {
         JSONObject jsonObject = JSON.parseObject(json);
         if ("00000".equals(jsonObject.getString("return_code"))) {
             //发送短信成功，写入缓存
-            redisService.set(CODE_BASE_KSY + phone, code);
+            redisService.set(CODE_BASE_KSY + phone, 1234+"");
             redisService.expire(CODE_BASE_KSY + phone,seconds);
         } else {
             log.error("send code fail ,phone:{}, errorInfo:{}", phone, json);
             throw new CommonJsonException(ErrorEnum.E_10005);
-        }
+        }*/
     }
 
     @Override

@@ -6,9 +6,11 @@ public interface UserService {
 
    User findByUserName(String username);
 
-   User findById(String id);
+   User findById(Integer id);
 
-   boolean insertSelective(User user);
+   boolean insert(User record);
+
+   boolean updatePasswordByPhone(String phone,String password);
 
 
 }

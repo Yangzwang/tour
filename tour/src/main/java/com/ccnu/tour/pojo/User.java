@@ -1,12 +1,11 @@
 package com.ccnu.tour.pojo;
 
-import com.ccnu.tour.util.AESUtil;
 import com.ccnu.tour.util.StringTools;
 
 import java.util.Date;
 
 public class User {
-    private String id;
+    private Long id;
 
     private Integer age;
 
@@ -14,21 +13,19 @@ public class User {
 
     private Integer credit;
 
-    private String description;
+    private String signature;
 
     private String hobby;
 
-    private String identity;
+    private String photo;
 
-    private String imgurl;
-
-    private Float km;
+    private Float routeKm;
 
     private Double lat;
 
     private Double lng;
 
-    private String loginname;
+    private String phone;
 
     private String nickname;
 
@@ -38,28 +35,25 @@ public class User {
 
     private Integer status;
 
-    private Integer times;
+    private Date createTime;
 
-    private String trueName;
+    private Date updateTime;
 
-    public static User init(String phone, String password) {
-        User user = new User();
-        user.setId("297e82c65549745b0155497460010010789");
-        user.setLoginname(phone);
-        user.setPasswd(AESUtil.doEncrypt(password));
-        user.setStatus(0);
+    public static  User init(String phone,String password){
+        User user=new User();
+        user.setPhone(phone);
+        user.setPasswd(password);
         user.setNickname(StringTools.getNikeName());
-        user.setImgurl(StringTools.photoUrl());
-        user.setKm(0f);
+        user.setPhoto(StringTools.photoUrl());
         return user;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Integer getAge() {
@@ -86,12 +80,12 @@ public class User {
         this.credit = credit;
     }
 
-    public String getDescription() {
-        return description;
+    public String getSignature() {
+        return signature;
     }
 
-    public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
+    public void setSignature(String signature) {
+        this.signature = signature == null ? null : signature.trim();
     }
 
     public String getHobby() {
@@ -102,28 +96,20 @@ public class User {
         this.hobby = hobby == null ? null : hobby.trim();
     }
 
-    public String getIdentity() {
-        return identity;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setIdentity(String identity) {
-        this.identity = identity == null ? null : identity.trim();
+    public void setPhoto(String photo) {
+        this.photo = photo == null ? null : photo.trim();
     }
 
-    public String getImgurl() {
-        return imgurl;
+    public Float getRouteKm() {
+        return routeKm;
     }
 
-    public void setImgurl(String imgurl) {
-        this.imgurl = imgurl == null ? null : imgurl.trim();
-    }
-
-    public Float getKm() {
-        return km;
-    }
-
-    public void setKm(Float km) {
-        this.km = km;
+    public void setRouteKm(Float routeKm) {
+        this.routeKm = routeKm;
     }
 
     public Double getLat() {
@@ -142,12 +128,12 @@ public class User {
         this.lng = lng;
     }
 
-    public String getLoginname() {
-        return loginname;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setLoginname(String loginname) {
-        this.loginname = loginname == null ? null : loginname.trim();
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
     }
 
     public String getNickname() {
@@ -182,19 +168,19 @@ public class User {
         this.status = status;
     }
 
-    public Integer getTimes() {
-        return times;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setTimes(Integer times) {
-        this.times = times;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public String getTrueName() {
-        return trueName;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setTrueName(String trueName) {
-        this.trueName = trueName == null ? null : trueName.trim();
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }

@@ -22,7 +22,7 @@ public class CommonUtil {
      * @return
      */
     public static JSONObject successJson() {
-        return successJson(new JSONObject());
+        return successJson("ok");
     }
 
     /**

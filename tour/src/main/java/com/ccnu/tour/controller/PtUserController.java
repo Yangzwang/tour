@@ -5,6 +5,7 @@ import com.ccnu.tour.config.CommonJsonException;
 import com.ccnu.tour.pojo.User;
 import com.ccnu.tour.service.RedisService;
 import com.ccnu.tour.service.UserService;
+import com.ccnu.tour.util.AESUtil;
 import com.ccnu.tour.util.CommonUtil;
 import com.ccnu.tour.util.ErrorEnum;
 import com.ccnu.tour.util.StringTools;
@@ -20,13 +21,14 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/api/pt/user")
 public class PtUserController {
-    @Resource
-    UserService userService;
     @Autowired
     RedisService redisService;
     @Value("${img.url}")
     private String imgUrl;
 
+
+    @Autowired
+    UserService userService;
 
     private static Logger log = LoggerFactory.getLogger(PtUserController.class);
 
@@ -37,6 +39,21 @@ public class PtUserController {
         User user = (User) request.getAttribute("user_info");
         user.setPhoto(imgUrl + user.getPhoto());
         return CommonUtil.successJson(user);
+
+    }
+
+    @RequestMapping(value = "/update_password", method = RequestMethod.POST)
+    @ResponseBody
+    public JSONObject updatePassword(@RequestBody JSONObject requestJson,HttpServletRequest request) {
+        User user= (User) request.getAttribute("user_info");
+        CommonUtil.hasAllRequired(requestJson, "oldPassword,newPassword");
+        if(!AESUtil.doDecrypt(user.getPasswd()).equals(requestJson.getString("newPassword"))){
+            throw new CommonJsonException(ErrorEnum.E_10006);
+        }
+        if(!userService.updatePasswordById(0L,requestJson.getString("newPassword"))){
+            throw new CommonJsonException(ErrorEnum.E_601);
+        }
+        return CommonUtil.successJson();
 
     }
 }

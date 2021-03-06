@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
@@ -24,7 +25,7 @@ public class TourController {
     public JSONObject getTour(HttpServletRequest request) {
 
         JSONObject jsonObject = CommonUtil.convert2JsonAndCheckRequiredColumns(request, "pageNum,pageSize");
-        log.info("/tour/getTour{}" + jsonObject);
+        log.info("/tour/getTour:{}" + jsonObject.toJSONString());
         return this.tourService.getQueryTour(Integer.parseInt(jsonObject.getString("pageNum")), Integer.parseInt(jsonObject.getString("pageSize")));
 
     }

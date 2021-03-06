@@ -12,5 +12,7 @@ public interface UserService {
 
    boolean updatePasswordByPhone(String phone,String password);
 
+   boolean  updatePasswordById(Long id,String password);
+
 
 }

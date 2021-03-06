@@ -13,11 +13,13 @@ public interface UserMapper {
 
 
 
-    User findById(Integer id);
+    int updateByPrimaryKeySelective(User user);
 
 
     User findByUserName(@Param("username") String username);
 
     int updatePasswordByPhone(@Param("phone")String phone,@Param("password")String password);
+
+   int  updatePasswordById(@Param("password") String password,@Param("id")Long id);
 
 }

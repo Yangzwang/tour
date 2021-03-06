@@ -36,4 +36,9 @@ public class UserServiceImpl implements UserService {
     public boolean updatePasswordByPhone(String phone, String password) {
         return userMapper.updatePasswordByPhone(phone,password)>0;
     }
+
+    @Override
+    public boolean updatePasswordById(Long id,String password) {
+        return userMapper.updatePasswordById(password,id)>0;
+    }
 }

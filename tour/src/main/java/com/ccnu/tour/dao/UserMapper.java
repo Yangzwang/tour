@@ -21,4 +21,6 @@ public interface UserMapper {
 
     User findByUserName(@Param("username") String username);
 
+   int  updatePasswordById(@Param("password") String password,@Param("id")Long id);
+
 }

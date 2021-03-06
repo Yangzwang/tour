@@ -27,7 +27,7 @@ public class VerificationCodeController {
     @RequestMapping(value = "/send_code", method = RequestMethod.POST)
     @ResponseBody
     public JSONObject sendCode(@RequestBody JSONObject requestJson, HttpServletRequest request) {
-        CommonUtil.hasAllRequired("requestJson", "phone");
+        CommonUtil.hasAllRequired(requestJson, "phone");
         smsService.sendCode(requestJson.getString("phone"));
         return CommonUtil.successJson("验证码发送成功");
     }

@@ -250,5 +250,10 @@
         from t_user
         where loginName = #{username,jdbcType=VARCHAR}
     </select>
-
+  <update id="updatePasswordById">
+    update t_user
+    set
+      passwd = #{password,jdbcType=VARCHAR},
+    where id = #{id,jdbcType=BIGINT}
+  </update>
 </mapper>

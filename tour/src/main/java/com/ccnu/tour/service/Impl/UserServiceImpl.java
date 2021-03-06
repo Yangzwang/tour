@@ -31,4 +31,9 @@ public class UserServiceImpl implements UserService {
     public boolean insertSelective(User user) {
         return userMapper.insertSelective(user)>0;
     }
+
+    @Override
+    public boolean updatePasswordById(Long id,String password) {
+        return userMapper.updatePasswordById(password,id)>0;
+    }
 }

@@ -10,5 +10,7 @@ public interface UserService {
 
    boolean insertSelective(User user);
 
+   boolean  updatePasswordById(Long id,String password);
+
 
 }

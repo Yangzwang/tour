@@ -6,13 +6,15 @@ public interface UserService {
 
    User findByUserName(String username);
 
-   User findById(Integer id);
+   User findById(Long id);
 
    boolean insert(User record);
 
    boolean updatePasswordByPhone(String phone,String password);
 
    boolean  updatePasswordById(Long id,String password);
+
+   boolean updateByPrimaryKeySelective(User user);
 
 
 }

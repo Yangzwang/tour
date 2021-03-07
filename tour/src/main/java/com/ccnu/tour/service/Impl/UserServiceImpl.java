@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findById(Integer id) {
+    public User findById(Long id) {
         return userMapper.findById(id);
     }
 
@@ -40,5 +40,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean updatePasswordById(Long id,String password) {
         return userMapper.updatePasswordById(password,id)>0;
+    }
+    @Override
+    public boolean updateByPrimaryKeySelective(User user) {
+        return userMapper.updateByPrimaryKeySelective(user)>0;
     }
 }

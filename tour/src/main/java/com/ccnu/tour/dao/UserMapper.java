@@ -11,7 +11,7 @@ public interface UserMapper {
 
     int insert(User record);
 
-
+    User findById(Long id);
 
     int updateByPrimaryKeySelective(User user);
 

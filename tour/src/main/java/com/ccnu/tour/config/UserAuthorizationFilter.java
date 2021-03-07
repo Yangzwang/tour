@@ -3,6 +3,7 @@ package com.ccnu.tour.config;
 import ch.qos.logback.classic.util.EnvUtil;
 import com.ccnu.tour.manager.UserAuthorizationManager;
 import com.ccnu.tour.pojo.User;
+import com.ccnu.tour.util.AESUtil;
 import com.ccnu.tour.util.CommonUtil;
 import com.ccnu.tour.util.ErrorEnum;
 import com.ccnu.tour.util.RequestExtract;

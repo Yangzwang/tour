@@ -6,6 +6,8 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 /**
 * Created by zhangdingshui on 2020/05/23
@@ -64,5 +66,13 @@ public class WebFilterConfig {
         UserAuthorizationManager  userAuthorizationManager=new UserAuthorizationManager();
         return userAuthorizationManager;
     }
+
+   /* // 9.4.5 显示声明CommonsMultipartResolver为mutipartResolver
+    @Bean(name = "multipartResolver")
+    public MultipartResolver multipartResolver() {
+        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+        resolver.setMaxUploadSize(10 * 1024 * 1024);// 上传文件大小 10M 10*1024*1024
+        return resolver;
+    }*/
 
 }

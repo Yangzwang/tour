@@ -7,9 +7,9 @@ import java.util.Date;
 public class User {
     private Long id;
 
-    private Integer age;
 
-    private Date birthday;
+
+    private String birthday;
 
     private Integer credit;
 
@@ -19,7 +19,7 @@ public class User {
 
     private String photo;
 
-    private Float routeKm;
+    private Double routeKm;
 
     private Double lat;
 
@@ -56,19 +56,13 @@ public class User {
         this.id = id;
     }
 
-    public Integer getAge() {
-        return age;
-    }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -104,11 +98,11 @@ public class User {
         this.photo = photo == null ? null : photo.trim();
     }
 
-    public Float getRouteKm() {
+    public Double getRouteKm() {
         return routeKm;
     }
 
-    public void setRouteKm(Float routeKm) {
+    public void setRouteKm(Double routeKm) {
         this.routeKm = routeKm;
     }
 

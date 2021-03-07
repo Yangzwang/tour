@@ -6,6 +6,7 @@ import com.ccnu.tour.pojo.User;
 import com.ccnu.tour.service.RedisService;
 import com.ccnu.tour.service.SmsService;
 import com.ccnu.tour.service.UserService;
+import com.ccnu.tour.util.AESUtil;
 import com.ccnu.tour.util.CommonUtil;
 import com.ccnu.tour.util.ErrorEnum;
 import com.ccnu.tour.util.StringTools;
@@ -31,6 +32,8 @@ public class PbUserController {
 
     private static final String TOKEN_BASE_KSY = "token:";
 
+
+
     private static final long seconds = 60 * 60 * 24 * 7;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -49,6 +52,7 @@ public class PbUserController {
         }
         String token = StringTools.GetGUID();
         redisService.set(TOKEN_BASE_KSY + token, user.getPhone());
+        redisService.expire(TOKEN_BASE_KSY + token, seconds);
         return CommonUtil.successJson(token);
 
     }
@@ -67,7 +71,8 @@ public class PbUserController {
             throw new CommonJsonException(ErrorEnum.E_10004);
         }
         String token = StringTools.GetGUID();
-        redisService.set(token, phone);
+        redisService.set(TOKEN_BASE_KSY+token, phone);
+        redisService.expire(TOKEN_BASE_KSY + token, seconds);
         return CommonUtil.successJson(token);
 
     }
@@ -82,7 +87,7 @@ public class PbUserController {
         if (!smsService.verificationCode(phone, validCode)) {
             throw new CommonJsonException(ErrorEnum.E_10003);
         }
-        if (!userService.updatePasswordByPhone(phone, password)) {
+        if (!userService.updatePasswordByPhone(phone, AESUtil.doEncrypt(password))) {
             throw new CommonJsonException(ErrorEnum.E_10006);
         }
         String token = StringTools.GetGUID();

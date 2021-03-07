@@ -44,13 +44,25 @@ public class PtUserController {
 
     @RequestMapping(value = "/update_password", method = RequestMethod.POST)
     @ResponseBody
-    public JSONObject updatePassword(@RequestBody JSONObject requestJson,HttpServletRequest request) {
-        User user= (User) request.getAttribute("user_info");
+    public JSONObject updatePassword(@RequestBody JSONObject requestJson, HttpServletRequest request) {
+        User user = (User) request.getAttribute("user_info");
         CommonUtil.hasAllRequired(requestJson, "oldPassword,newPassword");
-        if(!AESUtil.doDecrypt(user.getPasswd()).equals(requestJson.getString("newPassword"))){
-            throw new CommonJsonException(ErrorEnum.E_10006);
+        if (!AESUtil.doDecrypt(user.getPasswd()).equals(requestJson.getString("newPassword"))) {
+            throw new CommonJsonException(ErrorEnum.E_10007);
         }
-        if(!userService.updatePasswordById(0L,requestJson.getString("newPassword"))){
+        if (!userService.updatePasswordById(0L, requestJson.getString("newPassword"))) {
+            throw new CommonJsonException(ErrorEnum.E_601);
+        }
+        return CommonUtil.successJson();
+
+    }
+
+    @RequestMapping(value = "/update_user_info", method = RequestMethod.POST)
+    @ResponseBody
+    public JSONObject updateUserInfo(@RequestBody User user, HttpServletRequest request) {
+        User oldUser = (User) request.getAttribute("user_info");
+        user.setId(oldUser.getId());
+        if (!userService.updateByPrimaryKeySelective(user)) {
             throw new CommonJsonException(ErrorEnum.E_601);
         }
         return CommonUtil.successJson();

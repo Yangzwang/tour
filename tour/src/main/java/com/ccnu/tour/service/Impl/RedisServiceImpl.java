@@ -16,12 +16,12 @@ public class RedisServiceImpl implements RedisService {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    private static final long TEN_DAY=10*24*60*60;
+    private static final long TEN_DAY = 10 * 24 * 60 * 60;
 
     @Override
     public void set(String key, String value) {
         stringRedisTemplate.opsForValue().set(key, value);
-        expire(key,TEN_DAY);
+        expire(key, TEN_DAY);
     }
 
     @Override
@@ -31,8 +31,14 @@ public class RedisServiceImpl implements RedisService {
 
     @Override
     public boolean expire(String key, long expire) {
-        return stringRedisTemplate.expire(key, expire, TimeUnit.SECONDS);
+        return stringRedisTemplate.expire(key, expire, TimeUnit.SECONDS) == null;
     }
+
+    @Override
+    public Long getExpire(String key) {
+        return stringRedisTemplate.opsForValue().getOperations().getExpire(key);
+    }
+
 
     @Override
     public void remove(String key) {
@@ -41,6 +47,6 @@ public class RedisServiceImpl implements RedisService {
 
     @Override
     public Long increment(String key, long delta) {
-        return stringRedisTemplate.opsForValue().increment(key,delta);
+        return stringRedisTemplate.opsForValue().increment(key, delta);
     }
 }

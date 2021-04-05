@@ -7,6 +7,13 @@ import com.ccnu.tour.service.RedisService;
 import com.ccnu.tour.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
+
 /**
  * @Author: yang
  * @CreateTime: 2021-02-23 21:18
@@ -26,6 +33,11 @@ public class UserAuthorizationManager {
         if (StringUtils.isEmpty(userJson)) {
             return null;
         }
+        List<User> userList=new ArrayList<>();
+        userList.add(new User());
+
+      userList.stream().collect(groupingBy(User::getPhoto, Collectors.mapping(User::getSex,toSet())));
+
         return userService.findByUserName(userJson);
 
     }

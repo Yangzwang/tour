@@ -21,6 +21,8 @@ public interface RedisService {
      */
     boolean expire(String key, long expire);
 
+     Long getExpire(String key) ;
+
     /**
      * 删除数据
      */

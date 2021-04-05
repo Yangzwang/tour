@@ -29,7 +29,11 @@ public class SmsServiceImpl implements SmsService {
     private static Logger log = LoggerFactory.getLogger(SmsServiceImpl.class);
     private static final String SMS_URL = "http://yzx.market.alicloudapi.com/yzx/sendSms";
 
-    private static final  long  seconds=30*60;
+    private static final long seconds = 30 * 60;
+
+
+    private static final long resendSeconds = 29 * 60;
+
 
     private static final String CODE_BASE_KSY = "code:";
     @Autowired
@@ -38,9 +42,16 @@ public class SmsServiceImpl implements SmsService {
     private RedisService redisService;
 
     public void sendCode(String phone) {
-
-        redisService.set(CODE_BASE_KSY + phone, 1234+"");
-        redisService.expire(CODE_BASE_KSY + phone,seconds);
+        String key = CODE_BASE_KSY + phone;
+        String code = redisService.get(key);
+        if (code != null) {
+            Long sends = redisService.getExpire(key);
+            if (sends > resendSeconds) {
+                return;
+            }
+        }
+        redisService.set(CODE_BASE_KSY + phone, 1234 + "");
+        redisService.expire(CODE_BASE_KSY + phone, seconds);
 
         /*AccountInfo accountInfo = accountInfoMapper.findByAccountType(1);
         String appCode = AESUtil.doDecrypt(accountInfo.getSecretKey());

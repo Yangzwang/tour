@@ -37,7 +37,6 @@ public class PtUserController {
     public JSONObject userInfo(HttpServletRequest request) {
         //String token = request.getHeader("token");
         User user = (User) request.getAttribute("user_info");
-        user.setPhoto(imgUrl + user.getPhoto());
         return CommonUtil.successJson(user);
 
     }

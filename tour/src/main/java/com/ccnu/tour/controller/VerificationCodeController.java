@@ -33,11 +33,11 @@ public class VerificationCodeController {
     public JSONObject sendCode(@RequestBody JSONObject requestJson, HttpServletRequest request) {
         CommonUtil.hasAllRequired(requestJson, "phone");
         String phone = requestJson.getString("phone");
-        InterProcessMutex interProcessMutex = InterProcessLock.initInterProcessMutex("/send_code/" + phone);
+       // InterProcessMutex interProcessMutex = InterProcessLock.initInterProcessMutex("/send_code/" + phone);
         try {
-            interProcessMutex.acquire();
+          // interProcessMutex.acquire();
             smsService.sendCode(requestJson.getString("phone"));
-            interProcessMutex.release();
+           // interProcessMutex.release();
         } catch (Exception e) {
             log.error("send code fail,phone:{}", requestJson.getString("phone"), e);
             return CommonUtil.errorJson(E_10005);

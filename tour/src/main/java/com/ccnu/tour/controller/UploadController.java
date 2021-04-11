@@ -3,6 +3,7 @@ package com.ccnu.tour.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.ccnu.tour.util.CommonUtil;
 import com.ccnu.tour.util.ErrorEnum;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,6 +21,9 @@ import java.util.List;
 @RequestMapping("/api/pb/upload/")
 public class UploadController {
 
+    @Value("${img.url}")
+    private String imgUrl;
+
     @RequestMapping(value = "/img", method = RequestMethod.POST, consumes = {"multipart/form-data; charset=utf-8"})
     @ResponseBody
     public JSONObject imgUpdated(@RequestParam(value = "file") MultipartFile[] files, HttpServletRequest request) {
@@ -30,15 +34,15 @@ public class UploadController {
         for (MultipartFile file : files) {
             try {
                 String path = "/usr/local/tomcat/apache-tomcat-7.0.54/webapps/";
-                String savePath = "D://Xiaomi/";
+                String savePath ="D://Xiaomi/";
                 String filename = "img/nian" + System.currentTimeMillis() + ".png";
-                File saveFile = new File(savePath + filename);
+                File saveFile = new File(path + filename);
                 //判断文件父目录是否存在
                 if (!saveFile.getParentFile().exists()) {
                     saveFile.getParentFile().mkdirs();
                 }
                 file.transferTo(saveFile);
-                strings.add(filename);
+                strings.add(imgUrl+filename);
 
             } catch (Exception e) {
                 return CommonUtil.errorJson(ErrorEnum.E_600);

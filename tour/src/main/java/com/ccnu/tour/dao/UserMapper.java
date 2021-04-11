@@ -5,6 +5,9 @@ import com.ccnu.tour.pojo.User;
 import io.lettuce.core.dynamic.annotation.Param;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.Collection;
+import java.util.List;
+
 @Mapper
 public interface UserMapper {
 
@@ -21,5 +24,7 @@ public interface UserMapper {
     int updatePasswordByPhone(@Param("phone")String phone,@Param("password")String password);
 
    int  updatePasswordById(@Param("password") String password,@Param("id")Long id);
+
+   List<User> findByIds(Collection<Long> list);
 
 }

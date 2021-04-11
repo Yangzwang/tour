@@ -6,6 +6,8 @@ import com.ccnu.tour.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * @Author: yang
@@ -44,5 +46,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean updateByPrimaryKeySelective(User user) {
         return userMapper.updateByPrimaryKeySelective(user)>0;
+    }
+
+    @Override
+    public List<User> findByIds(Collection<Long> ids) {
+        return userMapper.findByIds(ids);
     }
 }
